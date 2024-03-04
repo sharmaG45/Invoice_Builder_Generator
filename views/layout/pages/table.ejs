@@ -1,0 +1,44 @@
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="card mb-4">
+          <div class="card-header pb-0">
+            <h6>User Details</h6>
+          </div>
+          <div class="card-body px-0 pt-0 pb-2">
+            <div class="table-responsive p-0">
+            <% if(user!=' '){ %>
+              <table class="table align-items-center justify-content-center mb-0">
+                <thead>
+                  <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Phone</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder  opacity-7 ps-2">Email</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% user.forEach(user =>{ %>
+                  <tr>
+                    <th scope="row"><%= user._id %></th>
+                    <td><%= user.name %></td>
+                    <td><%= user.phone %></td>
+                    <td><%= user.email %></td>
+                    <td>
+                      <a href="/update/<%= user._id %>" class="btn btn-sm btn-primary">Edit</a>
+                  </td>
+                  </tr>
+                  <%})%>
+                </tbody>
+              </table>
+              <%}else{%>
+                  <h3>No User Found</h3>
+              <%}%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
